@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package demo;
+
+service GrpcDemoService{
+    rpc GetDemaciaHeroById(DemaciaHeroId) returns (DemaciaHero){}
+}
+
+message DemaciaHeroId{
+    int32 id = 1;
+}
+
+message DemaciaHero{
+    int32 id = 1;
+    string name = 2;
+    string nickname = 3;
+    HeroType type = 4;
+    HeroInfo info = 5;
+}
+
+message HeroInfo{
+    int32 attack =1;
+    int32 hp = 2;
+    int32 mp = 3;
+}
+
+enum HeroType{
+    WARRIOR=0;
+    MAGE=1;
+    ASSASSIN=2;
+}
