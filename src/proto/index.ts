@@ -1,5 +1,6 @@
 import {
   ClientOptions,
+  GrpcOptions,
   MicroserviceOptions,
   Transport,
 } from '@nestjs/microservices';
@@ -21,7 +22,7 @@ interface Props {
  */
 export const setGrpcConfig = (
   props: Props,
-): MicroserviceOptions | ClientOptions => {
+): MicroserviceOptions | ClientOptions | GrpcOptions => {
   const _protoPath = props.optionForProto.map((item) =>
     join(__dirname, item._path),
   );
