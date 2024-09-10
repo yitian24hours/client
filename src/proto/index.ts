@@ -1,4 +1,8 @@
-import { ClientOptions, Transport } from '@nestjs/microservices';
+import {
+  ClientOptions,
+  MicroserviceOptions,
+  Transport,
+} from '@nestjs/microservices';
 import { join } from 'path';
 
 interface OptionForProto {
@@ -13,9 +17,11 @@ interface Props {
 /**
  *
  * @param {Props} props
- * @returns {ClientOptions}
+ * @returns {MicroserviceOptions}
  */
-export const setGrpcClientConfig = (props: Props): ClientOptions => {
+export const setGrpcConfig = (
+  props: Props,
+): MicroserviceOptions | ClientOptions => {
   const _protoPath = props.optionForProto.map((item) =>
     join(__dirname, item._path),
   );
